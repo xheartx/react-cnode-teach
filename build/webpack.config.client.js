@@ -15,8 +15,15 @@ const config = {
   },
   module: {
     rules: [{
-        test: /.jsx$/,
-        loader: 'babel-loader',
+      enforce: 'pre',
+      test: /.(js|jsx)$/,
+      loader: 'eslint-loader',
+      exclude: [
+        path.join(__dirname, '../node_modules'),
+      ]
+    },{
+      test: /.jsx$/,
+      loader: 'babel-loader',
     }, {
       test: /.js$/,
       loader: 'babel-loader',

@@ -8,11 +8,18 @@ module.exports = {
   output: {
     filename: 'server-entry.js',
     path: path.join(__dirname, '../dist'),
-    publicPath: '/public',
+    publicPath: '/public/',
     libraryTarget: 'commonjs2'
   },
   module: {
     rules: [{
+      enforce: 'pre',
+      test: /.(js|jsx)$/,
+      loader: 'eslint-loader',
+      exclude: [
+        path.join(__dirname, '../node_modules'),
+      ]
+    }, {
         test: /.jsx$/,
         loader: 'babel-loader',
     }, {

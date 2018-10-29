@@ -28,7 +28,7 @@ serverCimpiler.watch({}, (err, stats) => {
 
   stats = stats.toJson()
 
-  stats.errors.forEach(err => console.err(err))
+  stats.errors.forEach(err => console.error(err))
   stats.warnings.forEach(warn => console.warn(warn))
 
   const bundlePath = path.join(
@@ -47,7 +47,7 @@ serverCimpiler.watch({}, (err, stats) => {
 module.exports = function(app) {
 
   app.use('/public', proxy({
-    target: 'http://localHost:8888'
+    target: 'http://localhost:8888'
   }))
 
   app.get('*', function(req, res) {
