@@ -12,6 +12,7 @@
     "clear": "rimraf dist",
     "build": "npm run clear && npm run build:client && npm run build:server",
     "lint": "eslint --ext .js --ext .jsx client/",
+    "precommit": "npm run lint",
     "start": "node server/server.js"
   },
   "author": "X.Heart",
