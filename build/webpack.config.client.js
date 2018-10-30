@@ -11,7 +11,10 @@ const config = {
   output: {
     filename: '[name].[hash].js',
     path: path.join(__dirname, '../dist'),
-    publicPath: '/public/',
+    publicPath: '/public/'
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
   },
   module: {
     rules: [{
@@ -19,16 +22,16 @@ const config = {
       test: /.(js|jsx)$/,
       loader: 'eslint-loader',
       exclude: [
-        path.join(__dirname, '../node_modules'),
+        path.join(__dirname, '../node_modules')
       ]
-    },{
+    }, {
       test: /.jsx$/,
-      loader: 'babel-loader',
+      loader: 'babel-loader'
     }, {
       test: /.js$/,
       loader: 'babel-loader',
       exclude: [
-        path.join(__dirname, '../node_modules'),
+        path.join(__dirname, '../node_modules')
       ]
     }]
   },
@@ -59,7 +62,7 @@ if (isDev) {
       index: '/public/index.html'
     }
   }
-  config.plugins.push(new webpack.HotModuleReplacementPlugin)
+  config.plugins.push(new webpack.HotModuleReplacementPlugin())
 }
 
 module.exports = config
